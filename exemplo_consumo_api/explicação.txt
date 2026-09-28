@@ -1,0 +1,11 @@
+Método HTTP (GET): Buscamos dados a partir de uma URL com a estruturada (.../ws/{cep}/json/).
+
+Serialização JSON: O método .json() converte a resposta em texto bruto diretamente em um dicionário Python.
+
+# Casos de borda (Edge cases):
+
+----- Entrada mal formatada: CEP com letras ou menos/mais de 8 dígitos.
+
+----- CEP inexistente: A API responde com status 200 OK, mas traz a chave erro: true no corpo do JSON.
+
+----- Falha de rede/timeout: O uso do bloco try/except com requests.exceptions.RequestException para evitar que o script quebre se a internet cair.
